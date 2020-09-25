@@ -311,12 +311,12 @@ function displayPlaces(places) {
 
 // 마커를 생성하고 지도 위에 마커를 표시하는 함수입니다
 function addMarker(position, idx, title) {
-console.log("~~~");
+  //console.log(position)
 // console.log(position.Ga)
  // console.log(position.Ha)
 
 
-     marker = new kakao.maps.Marker({
+            marker = new kakao.maps.Marker({
             position: position, // 마커의 위치
         });
 
@@ -331,80 +331,41 @@ console.log("~~~");
 
 
 
-
-
-
-
-
-
-
-
-
-
 function searchLatLan(){
+var latLng = [[36.134134134,127.14123413],[36.134134,127.14123],[36.13413,127.1412],[36.1341,127.141]]
+var placePosition = new kakao.maps.LatLng(latLng[0][0],latLng[0][1]);
 
 
-var check = [[36.08299095 ,129.3974673]
-,[36.08299308 ,129.3978115] 
-,[36.08302538 ,129.3982231]
-,[36.08307637 ,129.3999507]
-,[36.08297348 ,129.3951886]    
-,[36.08296369 ,129.3952271]  
-,[36.08301375 ,129.3966661]
-,[36.08297491 ,129.3970312]
-,[36.08300671 ,129.3974678]
-,[36.08302852 ,129.3984036]   
-,[36.08301431 ,129.3995631]  
-,[36.08307612 ,129.4003003]  
-,[36.08306928, 129.4017652]  
-]
-
-    var bounds = new kakao.maps.LatLngBounds(), 
-    listStr = '';
 
 
-for( var i=0; i <check.length; i++){
-    console.log(i);
-    
-        console.log(check[i][0]);
-        console.log(check[i][1]);
-        marker = new kakao.maps.Marker({
-            position: new kakao.maps.LatLng(check[i][0],check[i][1]), // 마커의 위치
-        });
 
-    marker.setMap(map); // 지도 위에 마커를 표출합니다
-    markers.push(marker);  // 배열에 생성된 마커를 추가합니다
-    
+
+    for ( var i=0; i<latLng.length; i++ ) {
+//console.log(latLng.length);
+for( var j=0;j<2;j++){
+console.log(latLng[i][j])
+var placePosition = new kakao.maps.LatLng(latLng[i][j], latLng[i][j]),
+marker =addMarker(placePosition)
 }
 
+        // 마커를 생성하고 지도에 표시합니다
+      //  var placePosition = new kakao.maps.LatLng(places[i].y, places[i].x),
+      
+     //   marker = addMarker(placePosition, i);
+
+     //   bounds.extend(placePosition);
+
+    }
 
 
 
 
 
 
-
-
-
+//bounds.extend(placePosition);
+ // map.setBounds(bounds);
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
